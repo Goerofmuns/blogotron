@@ -3,10 +3,14 @@ var app = express();
 
 var port = process.env.PORT || 8080;
 
-app.get('/', function(res, req) {
-    res.send("<h1>Hello World</h1>");
+app.set('view engine', 'ejs');
+
+app.use(express.static(__dirname, '/public'));
+
+app.get('/', function(req, res) {
+    res.render('index');
 });
 
 app.listen(port, function () {
-
+    console.log('Webscale app is running on port ' + port);
 });

@@ -1,0 +1,14 @@
+{
+  "name": "intense-escarpment-38438",
+  "version": "1.0.0",
+  "description": "heroku testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express":"*"
+  },
+  "author": "Tom Hutchings",
+  "license": "ISC"
+}

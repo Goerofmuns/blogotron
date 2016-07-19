@@ -37,7 +37,9 @@ app.use(express.static(__dirname + '/public'));
 
 // happy routes
 app.get('/', function(req, res) {
-    res.render('index');
+    var postFiles = String(fs.readdirSync('./posts'));
+    var posts = postFiles.split(",");
+    res.render('index', {postList: posts});
 });
 
 app.get('/:post', function(req, res) {

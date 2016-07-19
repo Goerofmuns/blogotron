@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "express":"*",
-    "ejs":"*"
+    "ejs":"*",
+    "markdown":"*"
   },
   "author": "Tom Hutchings",
   "license": "ISC"

@@ -42,8 +42,8 @@ app.get('/', function(req, res) {
     res.render('index', {postList: posts});
 });
 
-app.get('/:post', function(req, res) {
-    var filePath = path.join(__dirname, 'posts', (req.params.post + '.md'));
+app.get('/posts/:postid', function(req, res) {
+    var filePath = path.join(__dirname, 'posts', (req.params.postid + '.md'));
     fs.readFile(filePath, {encoding: 'utf8'}, function(err, data) {
         if (err) {
             console.log("couldnt read post, error: " + err);

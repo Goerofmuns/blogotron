@@ -26,7 +26,7 @@ app.get('/posts/:postid', function(req, res) {
             console.log("couldnt read post, error: " + err);
         }
 
-        res.render('post', {postTitle: req.params.postid, styleSheet: "/css/style.css");
+        res.render('post', {postTitle: req.params.postid, styleSheet: "/css/style.css", body: md.toHTML(data)});
     });
 });
 

@@ -6,5 +6,5 @@ In-Dev node.js markdown blog hoster. Very minimal, because I can't node.js. Just
 post rendering.
 
 
-I'm hosting it on heroku at ~~~[blogotron.heroku.com](https://blogotron.herokuapp.com/)~~~ 
-now with url[blog.your-waifu-is-sh.it](blog.your-waifu-is-sh.it)!
+I'm hosting it on heroku at ~~blogotron.heroku.com~~ now
+with url [blog.your-waifu-is-sh.it](blog.your-waifu-is-sh.it)!

@@ -14,19 +14,22 @@ app.use(express.static(__dirname + '/public'));
 
 // happy routes
 app.get('/', function(req, res) {
-    var postFiles = String(fs.readdirSync('./posts'));
-    var posts = postFiles.split(",");
-    res.render('index', {postList: posts});
+    res.redirect('/posts/about');
 });
 
 app.get('/posts/:postid', function(req, res) {
     var filePath = path.join(__dirname, 'posts', (req.params.postid + '.md'));
+    var postFiles = String(fs.readdirSync('./posts'));
+    var posts = postFiles.split(",");
     fs.readFile(filePath, {encoding: 'utf8'}, function(err, data) {
         if (err) {
             console.log("couldnt read post, error: " + err);
         }
 
-        res.render('post', {postTitle: req.params.postid, styleSheet: "/css/style.css", body: md.toHTML(data)});
+        res.render('post', {postTitle: req.params.postid,
+			    styleSheet: "/css/style.css",
+			    body: md.toHTML(data),
+			    postList: posts});
     });
 });
 

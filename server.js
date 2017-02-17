@@ -12,7 +12,7 @@ var port = process.env.PORT || 8080;
 function applyHeaderAndStyle(body)
 {
     var postTitle = "Title";
-    var styleSheet = "css/style.css";
+    var styleSheet = "/css/style.css";
     return(
             `<html>
                 <head>

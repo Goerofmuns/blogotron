@@ -8,29 +8,6 @@ var md = require('markdown').markdown;
 var app = express();
 var port = process.env.PORT || 8080;
 
-// kill me
-function applyHeaderAndStyle(body)
-{
-    var postTitle = "Title";
-    var styleSheet = "/css/style.css";
-    return(
-            `<html>
-                <head>
-                    <title>${postTitle}</title>
-                    <link href=\"https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/journal/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-r/qnS4YZBLuBSKeVc+sM4eUYUiJMFhkHfx1nwlErHhTd+NgeJlN/NiiTd6jbKJzm\" crossorigin=\"anonymous\">
-                    <link rel=\"stylesheet\" href=\"${styleSheet}\"/>
-                </head>
-                <body>
-                    <div class="container">
-                        <div class="jumbotron">
-                            ${body}
-                        </div>
-                    </div>
-                </body>
-             </html>`);
-
-}
-
 // happy config
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -49,7 +26,7 @@ app.get('/posts/:postid', function(req, res) {
             console.log("couldnt read post, error: " + err);
         }
 
-        res.send(applyHeaderAndStyle(md.toHTML(data)));
+        res.render('post', {postTitle: req.params.postid, styleSheet: "/css/style.css");
     });
 });
 

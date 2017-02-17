@@ -1,7 +1,7 @@
 {
   "name": "blogotron",
-  "version": "1.0.0",
-  "description": "heroku testing",
+  "version": "0.1",
+  "description": "Markdown Blog System",
   "main": "server.js",
   "scripts": {
     "test": "echo \" what is testing\" && exit 0",

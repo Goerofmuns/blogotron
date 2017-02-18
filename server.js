@@ -1,14 +1,16 @@
-// umm, node?
+// includes
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
 var md = require('markdown').markdown;
 
-// happy config
-var app = express();
-var port = process.env.PORT || 8080;
+// Config Vars
+const postDir = String(fs.readdirSync('./posts'));
+const cssUrl    = "/css/style.css";
 
-// happy config
+// Setup
+var app = express();
+var port = process.env.PORT || 8080; // Set either 8080, or respect Heroku's choice
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
@@ -19,15 +21,14 @@ app.get('/', function(req, res) {
 
 app.get('/posts/:postid', function(req, res) {
     var filePath = path.join(__dirname, 'posts', (req.params.postid + '.md'));
-    var postFiles = String(fs.readdirSync('./posts'));
-    var posts = postFiles.split(",");
+    var posts = postDir.split(",");
     fs.readFile(filePath, {encoding: 'utf8'}, function(err, data) {
         if (err) {
             console.log("couldnt read post, error: " + err);
         }
 
         res.render('post', {postTitle: req.params.postid,
-			    styleSheet: "/css/style.css",
+			    styleSheet: cssUrl,
 			    body: md.toHTML(data),
 			    postList: posts});
     });

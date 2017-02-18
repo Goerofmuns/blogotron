@@ -7,7 +7,7 @@ post rendering.
 
 
 I'm hosting it on heroku at ~~blogotron.heroku.com~~ now
-with url [blog.your-waifu-is-sh.it](blog.your-waifu-is-sh.it)!
+with url [blog.your-waifu-is-sh.it](http://blog.your-waifu-is-sh.it)!
 
 ## Todo
 * Add Folder Support

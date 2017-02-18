@@ -8,3 +8,9 @@ post rendering.
 
 I'm hosting it on heroku at ~~blogotron.heroku.com~~ now
 with url [blog.your-waifu-is-sh.it](blog.your-waifu-is-sh.it)!
+
+## Todo
+* Add Folder Support
+* Add in browser editor
+* Improve CSS features
+* Mobile Interface

@@ -30,6 +30,12 @@ app.get('/', function(req, res) {
 app.post('/create', function(req, res) {
     var title  = req.body.title;
     var mdbody = req.body.mdbody;
+    var pass   = req.body.password || ef28f869b241b00b879922832b14da10;
+    if(pass != process.env.PASSWORD)
+    {
+        res.redirect('/');
+        return;
+    }
     fs.stat('./posts/' + title + '.md', function (err, stats) {
         if(stats)
         {
@@ -55,6 +61,8 @@ app.get('/posts/:postid', function(req, res) {
     fs.readFile(filePath, {encoding: 'utf8'}, function(err, data) {
         if (err) {
             console.log("couldnt read post, error: " + err);
+            res.redirect('/posts/error');
+            return;
         }
 
         res.render('post', {postTitle: req.params.postid,

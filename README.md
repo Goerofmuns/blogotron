@@ -10,6 +10,6 @@ I'm hosting it on heroku at ~~blogotron.heroku.com~~ now
 with url [blog.your-waifu-is-sh.it](http://blog.your-waifu-is-sh.it)!
 
 ## Todo
-* Add in browser editor
+* ~Add in browser editor~ Done
 * Improve CSS features
-* Mobile Interface
+* ~Mobile Interface~ Boostrap 4 fixes

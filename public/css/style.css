@@ -11,3 +11,7 @@ textarea.md-editor {
     height: 80%;
 }
 
+a.btn.btn-outline-primary.write-post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

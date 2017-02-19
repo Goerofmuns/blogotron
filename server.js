@@ -6,8 +6,13 @@ var md = require('markdown').markdown;
 var bodyParser = require('body-parser');
 
 // Config Vars
-const postDir = String(fs.readdirSync('./posts'));
+var postDir = String(fs.readdirSync('./posts'));
 const cssUrl    = "/css/style.css";
+
+function reloadPosts()
+{
+    postDir = String(fs.readdirSync('./posts'));
+}
 
 // Setup
 var app = express();
@@ -32,6 +37,7 @@ app.post('/create', function(req, res) {
             return;
         } else {
             fs.writeFileSync('./posts/' + title + '.md', mdbody, {flag: 'w'});
+            reloadPosts();
             res.redirect('/posts/' + title);
         }
     });

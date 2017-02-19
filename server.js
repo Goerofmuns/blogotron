@@ -25,8 +25,16 @@ app.get('/', function(req, res) {
 app.post('/create', function(req, res) {
     var title  = req.body.title;
     var mdbody = req.body.mdbody;
-    fs.writeFileSync('./posts/' + title + '.md', mdbody, {flag: 'w'});
-    res.redirect('/posts/' + title);
+    fs.stat('./posts/' + title + '.md', function (err, stats) {
+        if(stats)
+        {
+            res.redirect('/');
+            return;
+        } else {
+            fs.writeFileSync('./posts/' + title + '.md', mdbody, {flag: 'w'});
+            res.redirect('/posts/' + title);
+        }
+    });
 });
 
 app.get('/write', function(req, res) {

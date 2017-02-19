@@ -24,9 +24,10 @@
                         <% var title = p.slice(0, -3); %>
                         <li>
                             <a href="<%='/posts/' + title %>">
-                                <%= title %>
 				<% if (title == postTitle) { %>
-				    <-
+                                    <em><%= title %></em>
+				<% } else { %>
+				    <%= title %>
 				<% } %>
                             </a>
                         </li>

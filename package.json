@@ -11,7 +11,8 @@
     "express":"*",
     "ejs":"*",
     "markdown":"*",
-    "body-parser":"*"
+    "body-parser":"*",
+    "md5":"*"
   },
   "author": "Tom Hutchings",
   "license": "ISC"

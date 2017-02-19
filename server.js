@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var md = require('markdown').markdown;
 var bodyParser = require('body-parser');
+var md5 = require('md5')
 
 // Config Vars
 var postDir = String(fs.readdirSync('./posts'));
@@ -30,10 +31,11 @@ app.get('/', function(req, res) {
 app.post('/create', function(req, res) {
     var title  = req.body.title;
     var mdbody = req.body.mdbody;
-    var pass   = req.body.password || ef28f869b241b00b879922832b14da10;
-    if(pass != process.env.PASSWORD)
+    var pass   = req.body.password;
+    var hash = process.env.PASSWORD || 'ef28f869b241b00b879922832b14da10';
+    if(md5(pass) != hash)
     {
-        res.redirect('/');
+        res.redirect('/posts/error');
         return;
     }
     fs.stat('./posts/' + title + '.md', function (err, stats) {

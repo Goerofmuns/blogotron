@@ -3,6 +3,7 @@ var express = require('express');
 var fs = require('fs');
 var path = require('path');
 var md = require('markdown').markdown;
+var bodyParser = require('body-parser');
 
 // Config Vars
 const postDir = String(fs.readdirSync('./posts'));
@@ -13,10 +14,25 @@ var app = express();
 var port = process.env.PORT || 8080; // Set either 8080, or respect Heroku's choice
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // happy routes
 app.get('/', function(req, res) {
     res.redirect('/posts/about');
+});
+
+app.post('/create', function(req, res) {
+    var title  = req.body.title;
+    var mdbody = req.body.mdbody;
+    fs.writeFileSync('./posts/' + title + '.md', mdbody, {flag: 'w'});
+    res.redirect('/posts/' + title);
+});
+
+app.get('/write', function(req, res) {
+    var posts = postDir.split(",");
+    res.render('write', {styleSheet: cssUrl,
+			 postList: posts});
 });
 
 app.get('/posts/:postid', function(req, res) {

@@ -1,4 +1,13 @@
 body    { padding-top:50px; }
 h1 { text-align: center;}
 .container .jumbotron    { border-radius:5px; }
+textarea.md-editor {
+    font-family: monospace;
+    resize: none;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    height: 80%;
+}
 

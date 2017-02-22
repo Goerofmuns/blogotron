@@ -8,7 +8,7 @@ var md5 = require('md5')
 
 // Config Vars
 var postDir = String(fs.readdirSync('./posts'));
-const cssUrl    = "/css/style.css";
+const cssUrl = "/css/style.css";
 
 function reloadPosts()
 {
